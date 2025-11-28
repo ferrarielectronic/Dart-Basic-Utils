@@ -1879,6 +1879,9 @@ class X509Utils {
         } else if (object is ASN1TeletextString) {
           var objectTeletext = object;
           value = objectTeletext.stringValue;
+        } else if (object is ASN1IA5String) {
+          var objectIa5 = object;
+          value = objectIa5.stringValue;
         }
         dnData.putIfAbsent(o.objectIdentifierAsString!, () => value ?? '');
       }
